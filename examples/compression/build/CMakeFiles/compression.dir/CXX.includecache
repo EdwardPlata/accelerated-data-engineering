@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/workspaces/accelerated-data-engineering/examples/compression/compression.cpp
+iostream
+-
+fstream
+-
+vector
+-
+zlib.h
+-
+

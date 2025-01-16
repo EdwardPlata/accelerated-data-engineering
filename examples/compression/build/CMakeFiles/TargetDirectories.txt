@@ -1,0 +1,3 @@
+/workspaces/accelerated-data-engineering/examples/compression/build/CMakeFiles/rebuild_cache.dir
+/workspaces/accelerated-data-engineering/examples/compression/build/CMakeFiles/edit_cache.dir
+/workspaces/accelerated-data-engineering/examples/compression/build/CMakeFiles/compression.dir

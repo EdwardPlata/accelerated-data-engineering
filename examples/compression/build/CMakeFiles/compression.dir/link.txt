@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/compression.dir/compression.cpp.o  -o compression  /usr/lib/x86_64-linux-gnu/libz.so 
