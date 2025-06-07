@@ -1,0 +1,21 @@
+# Build directories
+**/build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Third-party dependencies
+third_party/
+
+# Compiled files
+*.o
+*.so
+*.dylib
+*.a
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
