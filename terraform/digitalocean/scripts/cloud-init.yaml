@@ -1,0 +1,43 @@
+#cloud-config
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - build-essential
+  - cmake
+  - git
+  - curl
+  - wget
+  - htop
+  - iotop
+  - net-tools
+  - sysstat
+  - gcc-12
+  - g++-12
+  - clang-14
+  - prometheus-node-exporter
+
+write_files:
+  - path: /etc/sysctl.d/99-simpledb.conf
+    content: |
+      # Network optimizations
+      net.core.rmem_max = 134217728
+      net.core.wmem_max = 134217728
+      net.ipv4.tcp_rmem = 4096 87380 67108864
+      net.ipv4.tcp_wmem = 4096 65536 67108864
+      net.core.netdev_max_backlog = 5000
+      
+      # Memory optimizations
+      vm.swappiness = 10
+      vm.dirty_ratio = 15
+      vm.dirty_background_ratio = 5
+
+runcmd:
+  - sysctl -p /etc/sysctl.d/99-simpledb.conf
+  - update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 100
+  - update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-12 100
+  - mkdir -p /data/simpledb /data/logs /data/backups
+  - echo "never" > /sys/kernel/mm/transparent_hugepage/enabled
+  - systemctl enable prometheus-node-exporter
+  - systemctl start prometheus-node-exporter

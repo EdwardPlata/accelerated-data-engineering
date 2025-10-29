@@ -1,0 +1,8 @@
+# Example terraform.tfvars file for DigitalOcean deployment
+# Copy this file to terraform.tfvars and fill in your values
+
+do_token       = "YOUR_DIGITALOCEAN_API_TOKEN"
+ssh_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQ... your-email@example.com"
+region         = "nyc3"
+allowed_ips    = ["YOUR_IP_ADDRESS/32"]
+db_port        = 9999

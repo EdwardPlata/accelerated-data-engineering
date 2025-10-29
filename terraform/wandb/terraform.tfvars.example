@@ -1,0 +1,8 @@
+# Example terraform.tfvars file for W&B/AWS deployment
+# Copy this file to terraform.tfvars and fill in your values
+
+region         = "us-east-1"
+ami_id         = "ami-0c55b159cbfafe1f0"  # Ubuntu 22.04
+ssh_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQ... your-email@example.com"
+allowed_ips    = ["YOUR_IP_ADDRESS/32"]
+wandb_api_key  = "YOUR_WANDB_API_KEY"

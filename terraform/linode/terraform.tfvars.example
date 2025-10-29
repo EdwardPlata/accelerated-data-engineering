@@ -1,0 +1,9 @@
+# Example terraform.tfvars file for Linode deployment
+# Copy this file to terraform.tfvars and fill in your values
+
+linode_token    = "YOUR_LINODE_API_TOKEN"
+root_password   = "YOUR_SECURE_PASSWORD"
+ssh_public_key  = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQ... your-email@example.com"
+region          = "us-east"
+allowed_ips     = ["YOUR_IP_ADDRESS/32"]
+db_port         = 9999
