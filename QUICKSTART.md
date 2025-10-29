@@ -96,8 +96,11 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/opt/accelerated-data-engineering/examples/database/build
-ExecStart=/opt/accelerated-data-engineering/examples/database/build/simple_db --daemon --port=9999
+ExecStart=/opt/accelerated-data-engineering/examples/database/build/simple_db
 Restart=always
+StandardInput=tty-force
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
@@ -273,7 +276,6 @@ sudo systemctl restart simpledb
 
 ## Support
 
-For commercial support, consulting, or questions:
-- Email: support@example.com
+For questions or issues:
 - GitHub: [Create an issue](https://github.com/EdwardPlata/accelerated-data-engineering/issues/new)
 - Documentation: [Full docs](docs/)

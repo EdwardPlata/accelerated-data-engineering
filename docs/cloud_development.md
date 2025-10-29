@@ -454,11 +454,12 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/opt/accelerated-data-engineering/examples/database/build
-ExecStart=/opt/accelerated-data-engineering/examples/database/build/simple_db --daemon --port=9999
+ExecStart=/opt/accelerated-data-engineering/examples/database/build/simple_db
 Restart=always
 RestartSec=10
-StandardOutput=append:/data/logs/simpledb.log
-StandardError=append:/data/logs/simpledb-error.log
+StandardInput=tty-force
+StandardOutput=journal
+StandardError=journal
 
 # Performance settings
 LimitNOFILE=65536
@@ -1251,12 +1252,9 @@ Group=simpledb
 WorkingDirectory=/opt/accelerated-data-engineering/examples/database/build
 
 # Start command
-ExecStart=/opt/accelerated-data-engineering/examples/database/build/simple_db \
-          --daemon \
-          --port=9999 \
-          --data-dir=/data/simpledb \
-          --log-file=/data/logs/simpledb.log \
-          --max-memory=24G
+# Note: Current simple_db implementation doesn't support these flags
+# This is an example of what a production version would include
+ExecStart=/opt/accelerated-data-engineering/examples/database/build/simple_db
 
 # Restart policy
 Restart=always
@@ -1729,7 +1727,7 @@ systemctl restart simpledb
 journalctl -u simpledb -f --all
 
 # Run with gdb for crash debugging
-gdb --args ./simple_db --daemon --port=9999
+gdb --args ./simple_db
 (gdb) run
 (gdb) bt  # backtrace on crash
 ```

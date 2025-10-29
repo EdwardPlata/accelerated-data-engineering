@@ -25,11 +25,12 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/opt/accelerated-data-engineering/examples/database/build
-ExecStart=/opt/accelerated-data-engineering/examples/database/build/simple_db --daemon --port=9999
+ExecStart=/opt/accelerated-data-engineering/examples/database/build/simple_db
 Restart=always
 RestartSec=10
-StandardOutput=append:/data/logs/simpledb.log
-StandardError=append:/data/logs/simpledb-error.log
+StandardInput=tty-force
+StandardOutput=journal
+StandardError=journal
 
 # Performance settings
 LimitNOFILE=65536
