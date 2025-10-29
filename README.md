@@ -10,8 +10,9 @@ C++ is a powerful programming language known for its high performance, low-level
 2. [Use Cases](#use-cases)
 3. [Applications in Data Engineering](#applications-in-data-engineering)
 4. [Advantages of C++ in Data Engineering](#advantages-of-c-in-data-engineering)
-5. [Limitations](#limitations)
-6. [Conclusion](#conclusion)
+5. [Cloud Development and Bare Metal Deployment](#cloud-development-and-bare-metal-deployment)
+6. [Limitations](#limitations)
+7. [Conclusion](#conclusion)
 
 ---
 
@@ -85,6 +86,75 @@ C++ powers popular database systems such as:
 - **Scalability**: Handles large-scale data processing effectively.
 - **Interoperability**: Easy integration with C libraries and embedded systems.
 - **Low-Level Control**: Allows optimization for specific hardware or network configurations.
+
+---
+
+## Cloud Development and Bare Metal Deployment
+
+C++ applications benefit significantly from bare metal infrastructure deployment, offering maximum performance and control. This repository includes comprehensive guides and Infrastructure as Code (IaC) examples for deploying C++ data engineering applications on bare metal servers across multiple cloud providers.
+
+### Key Features
+
+- **Terraform Configurations**: Ready-to-use Infrastructure as Code for Linode, DigitalOcean, and AWS
+- **Bare Metal Optimization**: Performance tuning for C++ applications
+- **Multi-Cloud Support**: Deploy to the cloud provider that best fits your needs
+- **Production-Ready**: Complete monitoring, security, and backup configurations
+- **SimpleDB Deployment**: End-to-end examples deploying our C++ database
+
+### Cloud Providers
+
+1. **Linode** - Dedicated CPU instances for predictable performance
+2. **DigitalOcean** - Developer-friendly Dedicated Droplets
+3. **AWS with Weights & Biases** - GPU-accelerated ML workloads
+
+### Quick Start
+
+```bash
+# Navigate to provider directory
+cd terraform/linode  # or digitalocean, or wandb
+
+# Configure credentials
+cp terraform.tfvars.example terraform.tfvars
+# Edit terraform.tfvars with your API keys
+
+# Deploy infrastructure
+terraform init
+terraform apply
+
+# Connect to server
+ssh root@$(terraform output -raw server_ip)
+```
+
+### Documentation
+
+- **[Cloud Development Guide](docs/cloud_development.md)** - Comprehensive guide covering:
+  - Bare metal vs. virtualization
+  - Provider comparison and selection
+  - Performance optimization techniques
+  - Security best practices
+  - Cost optimization strategies
+  - Monitoring and observability
+  - Troubleshooting guides
+
+- **[Terraform README](terraform/README.md)** - Infrastructure deployment guide:
+  - Prerequisites and setup
+  - Provider-specific configurations
+  - Deployment workflows
+  - Maintenance and updates
+  - Advanced features
+
+### Examples
+
+- **[SimpleDB Deployment](examples/database/)** - Production database on bare metal
+- **[ML Query Optimizer with W&B](examples/wandb/)** - Machine learning integration
+
+### Benefits of Bare Metal for C++
+
+- **Predictable Performance**: No virtualization overhead or noisy neighbors
+- **Maximum Resources**: Full access to CPU, memory, and I/O bandwidth
+- **Hardware Optimization**: Direct use of CPU instructions (AVX, SSE, SIMD)
+- **Low Latency**: Ideal for high-frequency data processing
+- **Custom Kernel**: Complete control over operating system configuration
 
 ---
 
